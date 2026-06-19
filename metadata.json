@@ -1,0 +1,6 @@
+{
+  "name": "Bomberos Voluntarios Trenque Lauquen",
+  "description": "Sitio web institucional de los Bomberos Voluntarios de Trenque Lauquen, Argentina. Información sobre servicios, cuerpo activo y cómo colaborar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

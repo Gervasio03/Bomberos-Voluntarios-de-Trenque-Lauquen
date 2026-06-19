@@ -1,0 +1,21 @@
+{
+  "assetURLs": {
+    "url": "https://cdn-sharing.adobecc.com/rendition/id/urn:aaid:sc:US:b32b071d-0f00-46ae-92d5-0b66865e9b2a;page=0;size=1200;type=image%2Fjpeg?access_token=1781750596_urn%3Aaaid%3Asc%3AUS%3Ab32b071d-0f00-46ae-92d5-0b66865e9b2a%3Bpublic_63c1115cd95f9fb4a491607340941d42aa6acb39&api_key=dc_sendtrack",
+    "download_url": "https://acp-aep-cs-blobstore-prod-va6-data.adobe.io/9526e8fb-398b-4c27-82d2-9db2a3e7d954?response-content-disposition=attachment%3B%20filename%3D%22COMREVIS.2025.pdf%22&response-content-type=application%2Fpdf&x-user-client-id=CC-CollabService&x-region=va6&x-version-id=2&x-partition-prefix=8d6094359d48bd27a9f1697a2efe253779db82388aa419a5d16924481faebc91&x-resource-length=92154&x-resource-id=8614e0449c3cec74b1814e277e9127627caf9b388fd33cbca04a73444df3cded41437beb&x-key-id=BN5JZ&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDliblj7X3fzSsApArtPEbqmuvB59sQ4gNFoq2TP6EHsAIhAIcDB6G4eefCJz2V3FfcigyXJ8r46%2BaAEblkO1S%2FisBLKvQBCJD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAhoMNzY2OTY5ODQ0MDc4IgzM9uEG0lGTZd73psYqyAHEfziV8Mtzs0zp85KFZ%2BKe%2BpZf%2Bl52lWRb%2FEvZ7AngBFXEM71SDWneiRlNT%2BWCEFJj%2B4a3lafwQ%2B%2BxiTs7NY9gkZNv88coRCnGVaIWUEXQOeGqP5TsPIj49Ts6fBYEtyvdDlmarmqfjxgcQ2HtZ354qeKt53IG8nI1S98ZPh9NpsgrfOa2qs3UUNAJ06mhs9dQKFDGWeUb9COnS6TTjLA92DFGhb1j3foBecQElV3F96bSQHsU6gCI0ALiE2XEqQRLrw0cK5LLZjDx4MrRBjqXARdvt4vRrolv4%2BMbjVZL6NWPDeQk3mTw0DwVd64zWlELJvcFx8we3uzS%2Bux0LWXkSWC1ONL%2BvUNMkeXALohZFWglH1JcbggUInIv0PBLOxSLVcEtAWQyGwKFSJmVF87HTGLKGP1mq2ZiwWlyLQpda5kcMU%2BA2kAJkbQD3QZNI%2FiML4geM9Mpm7MAyNvAKb5UC96VYpyl79k%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260617T144316Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIA3FEXXCFXIQH7WGGW%2F20260617%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=14400&X-Amz-Signature=7a1ee610e2ee6138f9f773871eb4d757c842c7881aed700be332f2ab9b7492d8"
+  },
+  "shouldEnableOpenPDFCaching": true,
+  "shouldEnableFirstAjsPageCaching": true,
+  "shouldEnableLpm": true,
+  "lpm": {
+    "shouldRenderLpmThroughEW": true,
+    "renditionImages": [
+      {
+        "rendered": false
+      },
+      {
+        "rendered": false
+      }
+    ]
+  },
+  "enableMetaDataAndRenditionAPI": true
+}
