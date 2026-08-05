@@ -11,8 +11,8 @@ export default function Contacto() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const bodyText = `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`;
-    const mailtoUrl = `mailto:trenquelauqenbomberos@gmail.com?subject=${encodeURIComponent(asunto || 'Contacto desde la Web')}&body=${encodeURIComponent(bodyText)}`;
-    window.location.href = mailtoUrl;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=bomberostrenque@hotmail.com&su=${encodeURIComponent(asunto || 'Contacto desde la Web')}&body=${encodeURIComponent(bodyText)}`;
+    window.open(gmailUrl, '_blank');
   };
 
   return (
