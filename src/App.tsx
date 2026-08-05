@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -14,6 +14,10 @@ import Noticias from './pages/Noticias';
 import Contacto from './pages/Contacto';
 
 export default function App() {
+  useEffect(() => {
+    document.title = 'Bomberos Voluntarios de Trenque Lauquen';
+  }, []);
+
   return (
     <Router>
       <Layout>
