@@ -1,10 +1,31 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calendar, ChevronRight, ArrowRight, Radio as RadioIcon, Facebook, X } from 'lucide-react';
+import { Calendar, ChevronRight, Radio as RadioIcon, X, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { IMAGENES } from '../constants';
 
-const NOTICIAS_LIST = [
+interface NoticiaItem {
+  id: number;
+  img: string;
+  date: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  hasVideo?: boolean;
+  videoUrl?: string;
+}
+
+const NOTICIAS_LIST: NoticiaItem[] = [
+  {
+    id: 5,
+    img: "/noticias/septiembre-amarillo.jpg",
+    date: "10 de septiembre de 2026",
+    title: "10 de septiembre | Mes de Concientización sobre la Prevención del Suicidio",
+    excerpt: "En el marco del Mes de Concientización sobre la Prevención del Suicidio, desde Bomberos Voluntarios de Trenque Lauquen acompañamos esta importante iniciativa.",
+    content: "En el marco del Mes de Concientización sobre la Prevención del Suicidio, desde Bomberos Voluntarios de Trenque Lauquen acompañamos esta importante iniciativa, que busca generar conciencia sobre la importancia de la prevención, la escucha y el acompañamiento.\n\nCada 10 de septiembre se conmemora el Día Mundial para la Prevención del Suicidio, una fecha que nos invita a reflexionar sobre la importancia de hablar, escuchar y brindar apoyo a quienes puedan estar atravesando un momento difícil.\n\nCompartimos este video como parte de nuestro compromiso con la comunidad y con la difusión de mensajes que contribuyan a la concientización y la prevención.",
+    hasVideo: true,
+    videoUrl: "https://drive.google.com/file/d/1_hTur14byKZtqhnbI1l0FB_YbxFEO_or/preview"
+  },
   { 
     id: 4,
     img: "https://lh3.googleusercontent.com/d/11_2k4K3-IsCmsDxi34y41ZVJbBnP4BOj", 
@@ -40,7 +61,7 @@ const NOTICIAS_LIST = [
 ];
 
 export default function Noticias() {
-  const [activeNews, setActiveNews] = React.useState<typeof NOTICIAS_LIST[0] | null>(null);
+  const [activeNews, setActiveNews] = React.useState<NoticiaItem | null>(null);
 
   // Prevent background scrolling when modal is open
   React.useEffect(() => {
@@ -67,7 +88,7 @@ export default function Noticias() {
             <img 
               src={IMAGENES.gallery2} 
               alt="Radio Trenque Lauquen" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover" 
               referrerPolicy="no-referrer"
             />
           </div>
@@ -90,7 +111,7 @@ export default function Noticias() {
               <a 
                 href="https://radiolu11.com.ar/" 
                 target="_blank" 
-                rel="noopener noreferrer"
+                rel="noopener noreferrer" 
                 className="flex items-center gap-2 text-fire-red font-bold text-sm hover:text-fire-red/80 transition-colors"
               >
                 <RadioIcon className="w-5 h-5" />
@@ -100,6 +121,7 @@ export default function Noticias() {
           </div>
         </motion.div>
 
+        {/* Section Heading */}
         <div className="flex justify-between items-end mb-10">
           <div>
             <span className="text-fire-red font-bold uppercase tracking-widest text-sm">Actualidad</span>
@@ -107,6 +129,7 @@ export default function Noticias() {
           </div>
         </div>
 
+        {/* Grid of news cards */}
         <div className="grid md:grid-cols-3 gap-8">
           {NOTICIAS_LIST.map((news) => (
             <motion.article 
@@ -115,15 +138,16 @@ export default function Noticias() {
               onClick={() => setActiveNews(news)}
               className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer hover:shadow-md transition-all duration-300 flex flex-col h-full"
             >
-              <div className="h-56 overflow-hidden relative">
+              <div className="h-56 overflow-hidden relative bg-amber-50">
                 <img 
                   src={news.img} 
                   alt={news.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   referrerPolicy="no-referrer" 
                 />
-                <div className="absolute top-4 left-4 bg-slate-900/40 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md">
-                  Noticias
+                <div className="absolute top-4 left-4 bg-slate-900/60 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md flex items-center gap-1.5">
+                  {news.hasVideo && <Play className="w-3 h-3 text-amber-400 fill-current" />}
+                  {news.hasVideo ? 'Video' : 'Noticias'}
                 </div>
               </div>
               <div className="p-8 flex flex-col flex-1">
@@ -134,7 +158,7 @@ export default function Noticias() {
                 <h3 className="text-xl font-bold mb-4 group-hover:text-fire-red transition-colors leading-tight text-left">
                   {news.title}
                 </h3>
-                <p className="text-slate-500 text-sm mb-6 line-clamp-2 text-left flex-1">
+                <p className="text-slate-500 text-sm mb-6 line-clamp-3 text-left flex-1">
                   {news.excerpt}
                 </p>
                 <div className="text-fire-red font-bold text-sm flex items-center gap-2 self-start group-hover:gap-3 transition-all duration-300">
@@ -167,7 +191,6 @@ export default function Noticias() {
               transition={{ type: "spring", duration: 0.5, bounce: 0.1 }}
               className="relative bg-white w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl border border-slate-100 flex flex-col md:flex-row h-[85vh] md:h-[600px] z-10"
             >
-              {/* Reset background scroll behavior wrapper layout elements */}
               {/* Close Button - positioned absolutely on top-right of the whole modal */}
               <button
                 onClick={() => setActiveNews(null)}
@@ -177,15 +200,32 @@ export default function Noticias() {
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Left Column: Image */}
-              <div className="relative w-full md:w-1/2 h-48 md:h-full overflow-hidden flex-shrink-0 bg-slate-150">
-                <img
-                  src={activeNews.img}
-                  alt={activeNews.title}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-slate-950/10" />
+              {/* Left Column: Media (Video or Image) */}
+              <div className="relative w-full md:w-1/2 h-64 sm:h-72 md:h-full overflow-hidden flex-shrink-0 bg-black flex items-center justify-center">
+                {activeNews.hasVideo && activeNews.videoUrl ? (
+                  <div className="w-full h-full relative flex flex-col bg-black">
+                    <iframe
+                      src={activeNews.videoUrl}
+                      title={activeNews.title}
+                      className="w-full h-full border-0 absolute inset-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                      allowFullScreen
+                    />
+                    <div className="absolute top-3 left-3 z-10 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-bold flex items-center gap-1.5 shadow pointer-events-none">
+                      <Play className="w-3 h-3 fill-current text-amber-400" /> Video Incrustado
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <img
+                      src={activeNews.img}
+                      alt={activeNews.title}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-slate-950/10" />
+                  </>
+                )}
               </div>
 
               {/* Right Column: Content */}
@@ -229,4 +269,3 @@ export default function Noticias() {
     </section>
   );
 }
-

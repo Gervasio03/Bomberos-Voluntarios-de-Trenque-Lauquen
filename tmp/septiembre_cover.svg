@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Heart template -->
+    <g id="heart">
+      <path d="M 0 -15 C -15 -35 -40 -15 -40 10 C -40 35 -15 55 0 75 C 15 55 40 35 40 10 C 40 -15 15 -35 0 -15 Z" fill="#ebbe38" opacity="0.9" />
+    </g>
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="#f4dc74" />
+
+  <!-- Background hearts scattered -->
+  <!-- Top left -->
+  <use href="#heart" transform="translate(60, 40) rotate(-15) scale(0.9)" />
+  <use href="#heart" transform="translate(320, 30) rotate(20) scale(0.85)" />
+  <use href="#heart" transform="translate(560, 60) rotate(35) scale(0.75)" />
+
+  <!-- Upper middle background behind ribbon -->
+  <use href="#heart" transform="translate(300, 240) rotate(0) scale(3.4)" opacity="0.85" />
+  <use href="#heart" transform="translate(100, 190) rotate(-25) scale(1.1)" />
+  <use href="#heart" transform="translate(520, 220) rotate(20) scale(1.05)" />
+
+  <!-- Middle sides -->
+  <use href="#heart" transform="translate(30, 420) rotate(15) scale(1.2)" />
+  <use href="#heart" transform="translate(570, 410) rotate(-15) scale(1.25)" />
+
+  <!-- Lower areas -->
+  <use href="#heart" transform="translate(140, 680) rotate(-10) scale(1.5)" />
+  <use href="#heart" transform="translate(480, 670) rotate(15) scale(1.5)" />
+  <use href="#heart" transform="translate(80, 780) rotate(-25) scale(1)" />
+  <use href="#heart" transform="translate(540, 785) rotate(20) scale(1)" />
+  <use href="#heart" transform="translate(300, 810) rotate(5) scale(1.1)" />
+
+  <!-- Central Awareness Ribbon -->
+  <!-- Inner shadow / hollow loop -->
+  <!-- Outer ribbon shape -->
+  <g transform="translate(300, 290) scale(0.95)" filter="url(#soft-shadow)">
+    <!-- Right leg behind -->
+    <path d="M 5 -10 L 140 100 L 80 185 L -55 75 Z" fill="#ebb823" stroke="#2c2217" stroke-width="6" stroke-linejoin="round" />
+
+    <!-- Inner dark negative space inside loop -->
+    <path d="M 0 -105 C 40 -105 48 -50 0 15 C -48 -50 -40 -105 0 -105 Z" fill="#2c2217" />
+
+    <!-- Main loop and Left leg in front -->
+    <!-- Left leg and loop as contiguous path -->
+    <path d="M 0 -130 C -75 -130 -90 -45 -35 25 L -140 180 L -75 225 L 35 70 C 85 -5 75 -130 0 -130 Z" fill="#f8cf27" stroke="#2c2217" stroke-width="6" stroke-linejoin="round" />
+
+    <!-- Inner loop cut-out contour -->
+    <path d="M 0 -105 C 40 -105 48 -50 0 15 C -48 -50 -40 -105 0 -105 Z" fill="#2c2217" stroke="#2c2217" stroke-width="4" />
+  </g>
+
+  <!-- Card 1: SEPTIEMBRE AMARILLO -->
+  <g transform="translate(300, 560)">
+    <rect x="-170" y="-38" width="340" height="76" rx="14" fill="#fffbe6" filter="url(#soft-shadow)" />
+    <text x="0" y="-5" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#2b2218" text-anchor="middle" letter-spacing="4">SEPTIEMBRE</text>
+    <text x="0" y="27" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#2b2218" text-anchor="middle" letter-spacing="4">AMARILLO</text>
+  </g>
+
+  <!-- Card 2: MES DE LA PREVENCIÓN DEL SUICIDIO -->
+  <g transform="translate(300, 655)">
+    <rect x="-240" y="-30" width="480" height="60" rx="12" fill="#fffbe6" filter="url(#soft-shadow)" />
+    <text x="0" y="-6" font-family="'Arial', 'Helvetica', sans-serif" font-weight="800" font-size="19" fill="#2b2218" text-anchor="middle" letter-spacing="3">MES DE LA PREVENCIÓN</text>
+    <text x="0" y="19" font-family="'Arial', 'Helvetica', sans-serif" font-weight="800" font-size="19" fill="#2b2218" text-anchor="middle" letter-spacing="3">DEL SUICIDIO</text>
+  </g>
+</svg>

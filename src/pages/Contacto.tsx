@@ -54,7 +54,7 @@ export default function Contacto() {
                 <div>
                   <h4 className="font-bold text-slate-900">Email</h4>
                   <p className="text-slate-500">bomberostrenque@hotmail.com</p>
-                  <p className="text-slate-500">trenquelauqenbomberos@gmail.com</p>
+                  <p className="text-slate-500">trenquelauquenbomberos@gmail.com</p>
                   <p className="text-slate-500">asoc.trenquelauquen@bomberosargentina.org.ar</p>
                 </div>
               </div>
