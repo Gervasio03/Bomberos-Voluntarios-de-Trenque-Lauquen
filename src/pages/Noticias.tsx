@@ -17,6 +17,16 @@ interface NoticiaItem {
 
 const NOTICIAS_LIST: NoticiaItem[] = [
   {
+    id: 6,
+    img: "/noticias/rescate-acuatico.jpg",
+    date: "4 de octubre de 2026",
+    title: "Personal de Bomberos Voluntarios de Trenque Lauquen realizó un curso de rescate acuático",
+    excerpt: "Durante los días 2, 3 y 4 de octubre de 2026, se llevó a cabo una capacitación en rescate acuático correspondiente a la Región Centro Oeste, con actividades desarrolladas en distintos cuarteles de la región y cierre en la ciudad de Pehuajó.",
+    content: "Durante los días 2, 3 y 4 de octubre de 2026, se llevó a cabo una capacitación en rescate acuático correspondiente a la Región Centro Oeste, con actividades desarrolladas en distintos cuarteles de la región y cierre en la ciudad de Pehuajó.\n\nEn representación del Cuartel 33 de Bomberos Voluntarios de Trenque Lauquen, participaron el Oficial Héctor Villaro, la Suboficial Clarisa Lasarte y el Bombero Facundo Mazoue.\n\nEsta instancia de formación permite fortalecer los conocimientos y las habilidades del personal, contribuyendo a mejorar la preparación y la respuesta ante posibles emergencias que requieran intervenciones de rescate acuático.",
+    hasVideo: true,
+    videoUrl: "https://drive.google.com/file/d/1Iaf2cb6edKNwuCmkLWE4oCp-wom8RLy6/preview"
+  },
+  {
     id: 5,
     img: "/noticias/septiembre-amarillo.jpg",
     date: "10 de septiembre de 2026",
@@ -204,13 +214,21 @@ export default function Noticias() {
               <div className="relative w-full md:w-1/2 h-64 sm:h-72 md:h-full overflow-hidden flex-shrink-0 bg-black flex items-center justify-center">
                 {activeNews.hasVideo && activeNews.videoUrl ? (
                   <div className="w-full h-full relative flex flex-col bg-black">
-                    <iframe
-                      src={activeNews.videoUrl}
-                      title={activeNews.title}
-                      className="w-full h-full border-0 absolute inset-0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-                      allowFullScreen
-                    />
+                    {activeNews.videoUrl.match(/\.(mp4|webm|ogg|mov)(\?.*)?$/i) ? (
+                      <video
+                        src={activeNews.videoUrl}
+                        controls
+                        className="w-full h-full object-contain"
+                      />
+                    ) : (
+                      <iframe
+                        src={activeNews.videoUrl}
+                        title={activeNews.title}
+                        className="w-full h-full border-0 absolute inset-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                        allowFullScreen
+                      />
+                    )}
                     <div className="absolute top-3 left-3 z-10 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-bold flex items-center gap-1.5 shadow pointer-events-none">
                       <Play className="w-3 h-3 fill-current text-amber-400" /> Video Incrustado
                     </div>
@@ -224,6 +242,17 @@ export default function Noticias() {
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-slate-950/10" />
+                    {activeNews.hasVideo && (
+                      <div className="absolute bottom-4 left-4 right-4 bg-slate-900/85 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/10 text-white flex items-center gap-3 shadow-lg">
+                        <div className="w-8 h-8 rounded-full bg-amber-400/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+                          <Play className="w-4 h-4 fill-current" />
+                        </div>
+                        <div className="text-left">
+                          <p className="text-xs font-bold text-white">Video de capacitación adjunto</p>
+                          <p className="text-[11px] text-slate-300">Examen final CEPRO Rescate Acuático Región Centro Oeste</p>
+                        </div>
+                      </div>
+                    )}
                   </>
                 )}
               </div>
